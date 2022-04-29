@@ -2,7 +2,7 @@
 
 Для запуска:
 ```bash
-    docker-compose up --build
+    docker-compose up --build -d
     docker exec -it test-symfony-php /bin/bash
     composer install
     php bin/console doctrine:migrations:migrate
