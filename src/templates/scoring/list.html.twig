@@ -1,0 +1,41 @@
+{% extends 'scoring/home.html.twig' %}
+
+{% block title %}
+{{ 'page.list'|trans }}
+{% endblock %}
+
+{% block main %}
+<div class="container">
+    <table class="table">
+        <thead>
+            <th>{{ 'list.client.id'|trans }}<th>
+            <th>{{ 'list.client.firstname'|trans }}<th>
+            <th>{{ 'list.client.lastname'|trans }}<th>
+            <th>{{ 'list.client.phone'|trans }}<th>
+            <th>{{ 'list.client.email'|trans }}<th>
+            <th>{{ 'list.client.education'|trans }}<th>
+            <th>{{ 'list.client.consent'|trans }}<th>
+            <th>{{ 'list.score.score'|trans }}<th>
+            <th><th>
+        </thead>
+        <tbody>
+            {% for client in clients %}
+            <tr>
+                <td>{{ client.id }}<td>
+                <td>{{ client.firstname }}<td>
+                <td>{{ client.lastname }}<td>
+                <td>{{ client.phone }}<td>
+                <td>{{ client.email }}<td>
+                <td>{{ client.education.label|trans }}<td>
+                <td>{{ client.consent ? 'Да' : 'Нет' }}<td>
+                <td>{{ client.score is null ? '-' : client.score.score }}<td>
+                <td>
+                    <a href="{{ path('scoring_edit', {id: client.id}) }}">{{ 'list.edit'|trans }}</a>
+                <td>
+            <tr>
+            {%  endfor %}
+        </tbody>
+    </table>
+</div>
+{{ include('pagination.html.twig', {route: 'scoring_list', pages: pages, page: page}) }}
+{% endblock %}

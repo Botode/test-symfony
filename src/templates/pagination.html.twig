@@ -1,0 +1,29 @@
+{% if pages > 1 %}
+<div class="pagination">
+    <span>
+        {% if page != 1 %}
+        <a href="{{ path(route, {page: page-1}) }}">&laquo;</a>
+        {% else %}
+        &laquo;
+        {% endif %}
+    </span>
+
+    {% for i in 1..pages %}
+    <span>
+        {% if page != i %}
+        <a href="{{ path(route, {page: i}) }}">{{ i }}</a>
+        {% else %}
+        {{ i }}
+        {% endif %}
+    </span>
+    {% endfor %}
+
+    <span>
+        {% if page != pages %}
+        <a href="{{ path(route, {page: page+1}) }}">&raquo;</a>
+        {% else %}
+        &raquo;
+        {% endif %}
+    </span>
+</div>
+{% endif %}

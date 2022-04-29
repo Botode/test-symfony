@@ -1,0 +1,14 @@
+client:
+  firstname:
+    not_blank: Не может быть пустым
+  lastname:
+    not_blank: Не может быть пустым
+  phone:
+    not_blank: Не может быть пустым
+    format: 'Введите телефон в формате 7xxxxxxxxxx'
+  email:
+    not_blank: Не может быть пустым
+    unique: Такой email уже зарегистрирован
+    email: Невалидный email
+  education:
+    not_blank: Не может быть пустым

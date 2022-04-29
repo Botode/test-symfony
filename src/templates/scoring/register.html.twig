@@ -1,0 +1,17 @@
+{% extends 'scoring/home.html.twig' %}
+
+{% block title %}
+{{ 'page.register'|trans }}
+{% endblock %}
+
+{% block main %}
+{{ form_start(form) }}
+    {{ form_row(form.firstname, {'label': 'form.client.firstname'}) }}
+    {{ form_row(form.lastname, {'label': 'form.client.lastname'}) }}
+    {{ form_row(form.phone, {'label': 'form.client.phone.label'}) }}
+    {{ form_row(form.email, {'label': 'form.client.email'}) }}
+    {{ form_row(form.education, {'label': 'form.client.education'}) }}
+    {{ form_row(form.consent, {'label': 'form.client.consent.register'}) }}
+    {{ form_row(form.save, {'label': 'form.save.register'}) }}
+{{ form_end(form) }}
+{% endblock %}

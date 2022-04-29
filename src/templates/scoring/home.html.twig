@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+{{ 'page.home'|trans }}
+{% endblock %}
+
+{% block body %}
+<header>
+    <a href="{{ path('scoring_register') }}">{{ 'page.register'|trans }}</a> |
+    <a href="{{ path('scoring_list') }}">{{ 'page.list'|trans }}</a>
+</header>
+<hr>
+
+{% for label, messages in app.flashes %}
+    {% for message in messages %}
+        <div class="flash-{{ label }}">
+            {{ message|trans }}
+        </div>
+    {% endfor %}
+{% endfor %}
+
+{% block main %}{% endblock %}
+{% endblock %}

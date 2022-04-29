@@ -1,0 +1,46 @@
+page:
+  home: Скоринг
+  register: Регистрация клиента
+  list: Управление клиентами
+  edit: Редактирование карточки клиента
+form:
+  client:
+    id: Клиент №%id%
+    firstname: Имя
+    lastname: Фамилия
+    phone:
+      label: Номер телефона
+      placeholder: 7xxxxxxxxxx
+    email: Электронная почта
+    education: Образование
+    consent:
+      register: Я даю согласие на обработку моих личных данных
+      edit: Согласие на обработку личных данных
+  score:
+    score: 'Скоринг: %score%'
+  save:
+    register: Зарегистрировать
+    edit: Сохранить
+  success:
+    register: Клиент зарегистрирован
+  error:
+    not_found: Клиент не найден
+list:
+  client:
+    id: № клиента
+    firstname: Имя
+    lastname: Фамилия
+    phone: Телефон
+    email: Email
+    education: Образование
+    consent: Согласие
+  score:
+    score: Скоринг
+  edit: Редактировать
+education:
+  higher: Высшее образование
+  special: Специальное образование
+  secondary: Среднее образование
+command:
+  scoring:
+    desc: Перерасчет скоринга для клиента.
