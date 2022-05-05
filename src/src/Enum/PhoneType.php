@@ -2,7 +2,8 @@
 
 namespace App\Enum;
 
-enum PhoneType: string {
+enum PhoneType: string
+{
     case Megafon = 'megafon';
     case Beeline = 'beeline';
     case Mts = 'mts';
@@ -10,7 +11,7 @@ enum PhoneType: string {
 
     public function score(): int
     {
-        return match($this) {
+        return match ($this) {
             static::Megafon => 10,
             static::Beeline => 5,
             static::Mts => 3,
@@ -20,7 +21,7 @@ enum PhoneType: string {
 
     public static function fromPrefix(int $prefix): static
     {
-        return match(true) {
+        return match (true) {
             (902 <= $prefix && $prefix <= 906) => static::Beeline,
             (910 <= $prefix && $prefix <= 919) => static::Mts,
             (920 <= $prefix && $prefix <= 929) => static::Megafon,
@@ -33,7 +34,7 @@ enum PhoneType: string {
 
     public static function fromOper(string $oper): static
     {
-        return match($oper) {
+        return match ($oper) {
             'MTC' => static::Mts,
             'МегаФон' => static::Megafon,
             '' => static::Beeline,

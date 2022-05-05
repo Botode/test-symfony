@@ -16,7 +16,8 @@ class ConsentScoreHandler extends BasicHandler
         return parent::handle($client, $score);
     }
 
-    private function getConsentType(bool $consent): ConsentType {
+    private function getConsentType(bool $consent): ConsentType
+    {
         return ConsentType::from($consent);
     }
 }

@@ -29,15 +29,14 @@ class ClientType extends AbstractType
             ->add('email', EmailType::class)
             ->add('education', EnumType::class, [
                 'class' => EducationType::class,
-                'choice_label' => function($choice) {
+                'choice_label' => function ($choice) {
                     return $choice->label();
                 },
             ])
-            ->add('consent', CheckboxType::class,[
+            ->add('consent', CheckboxType::class, [
                 'required' => false,
             ])
-            ->add('save', SubmitType::class)
-        ;
+            ->add('save', SubmitType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

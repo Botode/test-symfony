@@ -24,7 +24,8 @@ class PhoneScoreHandler extends BasicHandler
         return $score;
     }
 
-    private function getPhoneType(string $phone): PhoneType {
+    private function getPhoneType(string $phone): PhoneType
+    {
         try {
             return $this->getPhoneTypeOnline($phone);
         } catch (Exception $e) {
@@ -32,10 +33,11 @@ class PhoneScoreHandler extends BasicHandler
         }
     }
 
-    private function getPhoneTypeOnline(string $phone): PhoneType {
+    private function getPhoneTypeOnline(string $phone): PhoneType
+    {
         $response = $this->httpClient->request(
             'GET',
-            'http://htmlweb.ru/api/mnp/phone/'.$phone,
+            'http://htmlweb.ru/api/mnp/phone/' . $phone,
         );
 
         if (200 !== $response->getStatusCode()) {
@@ -49,7 +51,8 @@ class PhoneScoreHandler extends BasicHandler
         return PhoneType::fromOper($brand);
     }
 
-    private function getPhoneTypeOffline(string $phone): PhoneType {
+    private function getPhoneTypeOffline(string $phone): PhoneType
+    {
         $prefix = intval(substr($phone, 1, 3));
         return PhoneType::fromPrefix($prefix);
     }

@@ -2,7 +2,8 @@
 
 namespace App\Enum;
 
-enum EmailType: string {
+enum EmailType: string
+{
     case Gmail = 'gmail';
     case Yandex = 'yandex';
     case Mail = 'mail';
@@ -10,7 +11,7 @@ enum EmailType: string {
 
     public function score(): int
     {
-        return match($this) {
+        return match ($this) {
             static::Gmail => 10,
             static::Yandex => 8,
             static::Mail => 6,
@@ -20,7 +21,7 @@ enum EmailType: string {
 
     public static function fromDomain(string $domain): static
     {
-        return match($domain) {
+        return match ($domain) {
             'gmail' => static::Gmail,
             'yandex' => static::Yandex,
             'mail' => static::Mail,

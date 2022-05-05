@@ -38,8 +38,7 @@ class ScoringCommand extends Command
     {
         $this
             ->setHelp('This command allows you to recalculate client scoring.')
-            ->addArgument('client_id', InputArgument::OPTIONAL, 'Client ID')
-        ;
+            ->addArgument('client_id', InputArgument::OPTIONAL, 'Client ID');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -55,22 +54,22 @@ class ScoringCommand extends Command
         } else {
             $progressBar = new ProgressBar($output, count($clients));
             $progressBar->start();
-            
+
             $table = new Table($output);
             $table->setHeaders($this->getTableHeader());
             $table->setHeaderTitle('Clients');
-            
-            foreach($clients as $client) {
+
+            foreach ($clients as $client) {
                 $score = $this->scoringService->calcClientScore($client);
                 $client->scoring($score);
-                
+
                 $this->entityManager->persist($client);
                 $this->entityManager->flush();
-                
+
                 $table->addRow($this->getTableRow($client));
                 $progressBar->advance();
             }
-            
+
             $progressBar->finish();
             $output->writeln('');
             $table->render();

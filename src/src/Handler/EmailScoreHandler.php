@@ -14,7 +14,8 @@ class EmailScoreHandler extends BasicHandler
         return $score;
     }
 
-    private function getEmailType(string $email): EmailType {
+    private function getEmailType(string $email): EmailType
+    {
         $domain = preg_match('/.+@(.+)\..+/', $email, $out) ? $out[1] : '';
         return EmailType::fromDomain($domain);
     }

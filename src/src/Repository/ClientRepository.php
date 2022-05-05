@@ -51,16 +51,15 @@ class ClientRepository extends ServiceEntityRepository
     /**
      * @return Paginator
      */
-    public function findAllWithScoreByPage(int $page = 1, int $limit = 20) {
+    public function findAllWithScoreByPage(int $page = 1, int $limit = 20)
+    {
         $query = $this->createQueryBuilder('c')
             ->leftJoin('c.score', 's')
             ->orderBy('c.id', 'ASC')
             ->getQuery()
             ->setFirstResult($limit * ($page - 1))
-            ->setMaxResults($limit)
-        ;
+            ->setMaxResults($limit);
 
         return new Paginator($query);
-
     }
 }

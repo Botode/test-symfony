@@ -20,7 +20,7 @@ class ClientScoreFixtures extends Fixture implements DependentFixtureInterface
     public function load(ObjectManager $manager): void
     {
         for ($i = 1; $i <= 50; $i++) {
-            $client = $this->getReference('client_'.$i);
+            $client = $this->getReference('client_' . $i);
             $score = $this->scoringService->calcClientScore($client);
 
             $clientScore = new ClientScore();
