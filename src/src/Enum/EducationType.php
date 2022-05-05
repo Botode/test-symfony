@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Config;
+namespace App\Enum;
 
 enum EducationType: string {
     case Higher = 'higher';

@@ -37,43 +37,8 @@ class ScoringServiceTest extends KernelTestCase
         $this->assertEquals(21, $score);
     }
 
-    public function testCalcPhoneScoreOnline()
+    private function getService(): ScoringService
     {
-        $service = $this->getService();
-        $score = $service->calcPhoneScore($this->client);
-        $this->assertEquals(3, $score);
-    }
-
-    public function testCalcPhoneScoreOffline()
-    {
-        $mockResponse = new MockResponse('{"oper":{"brand":""}}', ['http_code' => 200]);
-        $service = $this->getServiceWithResponse($mockResponse);
-        $score = $service->calcPhoneScore($this->client);
-        $this->assertEquals(5, $score);
-    }
-
-    public function testCalcEmailScore()
-    {
-        $service = $this->getService();
-        $score = $service->calcEmailScore($this->client);
-        $this->assertEquals(3, $score);
-    }
-
-    public function testCalcEducationScore()
-    {
-        $service = $this->getService();
-        $score = $service->calcEducationScore($this->client);
-        $this->assertEquals(15, $score);
-    }
-
-    public function testCalcConsentScore()
-    {
-        $service = $this->getService();
-        $score = $service->calcConsentScore($this->client);
-        $this->assertEquals(0, $score);
-    }
-
-    private function getService(): ScoringService {
         $mockResponse = new MockResponse(null, ['http_code' => 404]);
         return $this->getServiceWithResponse($mockResponse);
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Config;
+namespace App\Enum;
 
 enum ConsentType: int {
     case Yes = 1;

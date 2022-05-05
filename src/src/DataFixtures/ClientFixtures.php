@@ -2,8 +2,8 @@
 
 namespace App\DataFixtures;
 
-use App\Config\EducationType;
 use App\Entity\Client;
+use App\Enum\EducationType;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
